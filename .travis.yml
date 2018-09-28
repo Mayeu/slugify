@@ -1,0 +1,14 @@
+sudo: false
+language: ruby
+os:
+  - linux
+  - osx
+
+# Make sure we bats
+before_script:
+  - git clone https://github.com/sstephenson/bats.git
+  - export PATH=$PATH:bats/bin
+
+script:
+  - make test
+
