@@ -5,6 +5,20 @@ sh. It will almost certainly stays that way, I don't aim for perfection here.
 
 It does not have any option and work best by piping one line at a time to it.
 
+## Install
+
+If you are the adventurous kind you can simply use `curl` to download the script:
+```
+$ curl https://slugify.now.sh > slugify
+```
+Then update the right `chmod +x slugify` and move it in your personal `~/bin`
+(or anywhere in your `$PATH`)
+
+Otherwise, just clone this repo somewhere:
+```
+$ git https://github.com/Mayeu/slugify
+```
+
 ## Usage
 
 Via a pipe:

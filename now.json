@@ -1,0 +1,6 @@
+{
+  "static": {
+    "public": "dist",
+    "renderSingle": true
+  }
+}
