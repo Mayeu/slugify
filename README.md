@@ -16,7 +16,7 @@ Then update the right `chmod +x slugify` and move it in your personal `~/bin`
 
 Otherwise, just clone this repo somewhere:
 ```
-$ git https://github.com/Mayeu/slugify
+$ git clone https://github.com/Mayeu/slugify
 ```
 
 ## Usage
