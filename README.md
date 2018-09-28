@@ -26,6 +26,13 @@ sage: slugify text
        echo text | slugify
 ```
 
+## Testing
+
+To run the test, you are going to need [bats(1)](https://github.com/sstephenson/bats). Then you can simply run:
+```
+$ make test
+```
+
 ## License
 
 This software is distributed under the GPLv3 license. Please check the [LICENSE.md file](LICENSE.md)
