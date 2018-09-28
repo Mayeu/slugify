@@ -1,7 +1,8 @@
 .DEFAULT_GOAL := help
-.PHONY: help build alias clean deploy
+.PHONY: help build alias clean deploy test
 
-test: test/suite.bats slugify ## Run the test suite using bats
+test: .test.mk ## Run the test suite using bats
+.test.mk: test/suite.bats slugify
 	bats $<
 	touch $@
 
@@ -20,7 +21,7 @@ dist: ## Create the dist folder
 
 clean: ## Clean everything
 	rm -rf dist
-	touch slugify
+	rm -rf .*.mk
 
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'

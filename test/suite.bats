@@ -1,6 +1,6 @@
 #!/usr/bin/env bats
 
-slugify="slugify"
+slugify="./slugify"
 
 @test "slug \"lol #@ slug mY l1fe  béébé\"  via pipe" {
   result=$(echo "lol #@ slug mY l1fe  béébé" | $slugify)
