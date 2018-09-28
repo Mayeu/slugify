@@ -36,7 +36,7 @@ i-m-no-slug
 Invoking it without args or pipe will result in this usage:
 ```
 $ slugify
-sage: slugify text
+Usage: slugify text
        echo text | slugify
 ```
 
