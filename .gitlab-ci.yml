@@ -1,0 +1,30 @@
+stages:
+  - test
+
+before_script:
+  - if command -v apt-get > /dev/null 2>&1; then apt-get update && apt-get -y install curl make; fi
+  - curl https://codeload.github.com/sstephenson/bats/tar.gz/v0.4.0 > bats.tar.gz;
+  - tar xvzf bats.tar.gz
+  - mv bats-0.4.0 bats
+  - export PATH=$PATH:bats/bin
+
+.job_template: &job_definition
+  stage: test
+  script:
+    - make test
+
+Trusty:
+  <<: *job_definition
+  image: ubuntu:trusty
+
+# This locale setup catched the bug that led to v1.0.1
+Trusty UTF-8:
+  <<: *job_definition
+  image: ubuntu:trusty
+  variables:
+    LANG: C.UTF-8
+    LC_ALL: C.UTF-8
+  script:
+    - bash
+    - make test
+
