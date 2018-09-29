@@ -18,13 +18,13 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-VERSION=1.0.1
+VERSION=1.0.2
 
 # This is the magic
 to_slug() {
   # Forcing the c local so alnum is only 0-9A-Za-z
-  export LANG=c
-  export LC_ALL=c
+  export LANG=POSIX
+  export LC_ALL=POSIX
   # Keep only alphanumeric value
   sed -e 's/[^[:alnum:]]/-/g' |
   # Keep only one dash if there is multiple one consecutively
@@ -35,12 +35,16 @@ to_slug() {
   sed -e 's/-$//'
 }
 
-# Test if we are called via a pipe
+# Consume stdin if it exist
 if test -p /dev/stdin; then
   read -r input
+fi
+
+# Now check if there was input in stdin
+if test -n "${input}"; then
   echo "${input}" | to_slug
   exit
-# Test if there is an argument
+# No stdin, let's check if there is an argument
 elif test -n "${1}"; then
   echo "${1}" | to_slug
   exit
