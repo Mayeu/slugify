@@ -1,52 +1,98 @@
-# Slugify
+<h1 align="center">
+Slugify :snail:
+</h1>
+<h4 align="center">A simple and dependency free slugifier for your CLI. POSIX compatible.</h4>
+<p align="center">
+<i>Work on macOS and Linux :rocket:</i>
+</br>
+<i>TL;DR:</i> <code>input | slugify > output</code>
+</p>
+<p align="center">
+<img src="https://badgen.net/badge//cli/blue?icon=terminal" alt="Terminal badge"/>
+<img src="https://badgen.net/travis/Mayeu/slugify?icon=travis" alt="Travis Pipeline status badge"/>
+<a href="https://gitlab.com/Mayeu/slugify/commits/master"><img alt="pipeline status" src="https://gitlab.com/Mayeu/slugify/badges/master/pipeline.svg" /></a>
+<img src="https://badgen.net/github/release/Mayeu/slugify?icon=github" alt="GitHub release badge"/>
+</p>
 
-This is a really simple (a.k.a "dumb") implementation of slug generation in
-sh. It will almost certainly stays that way, I don't aim for perfection here.
+👉 This is a really simple (*a.k.a "feature-less"*) tool to generate slugs
+:snail: directly from your command line. It does not have any option by design
+and work best by piping one line at a time to it:
 
-It does not have any option and work best by piping one line at a time to it.
-
-## Install
-
-If you are the adventurous kind you can simply use `curl` to download the script:
 ```
-$ curl https://slugify.now.sh > slugify
+$ echo "I'm no slug 🐌." | slugify
+i-m-no-slug
 ```
-Then update the right `chmod +x slugify` and move it in your personal `~/bin`
-(or anywhere in your `$PATH`)
 
-Otherwise, just clone this repo somewhere:
+It does not aim to be perfect since the goal is to be able to use it in a *drop
+& run* fashion (a.k.a *`curl`ing & praying* :pray:).
+
+## :computer: Install
+
+If you are the adventurous kind you can simply `curl` & install the script
+directly from the web 🌐. Here is a one liner that may break your system:
+```
+$ curl https://slugify.now.sh > slugify && chmod +x && sudo mv slugify /usr/local/bin/
+```
+(Yes this will ask for your password, as stated before this may break your
+system. Paste with care.)
+
+Otherwise, just clone this repo somewhere and manually copy the `slugify`
+script anywhere your `$PATH` point to (my favorite place is my `~/bin` folder):
 ```
 $ git clone https://github.com/Mayeu/slugify
+$ cd slugify
+$ cp slugify ~/bin/
 ```
 
-## Usage
+## :hammer: How to use
 
-Via a pipe:
+The best way to use this tool is to directly pipe a line to it:
 ```
-$ echo 'Slug me bébé!!1!' | slugify"
+$ echo 'Slug me bébé!!1!' | slugify
 slug-me-b-b-1
 ```
 
-Or as an arg:
+But you can also pass the line to slug as an argument. Be sure to quote your
+text!
 ```
 $ slugify "I'm no slug."
 i-m-no-slug
 ```
 
-Invoking it without args or pipe will result in this usage:
+Finally, you can see the minimal help by calling the script without any
+argument:
 ```
 $ slugify
 Usage: slugify text
        echo text | slugify
 ```
 
-## Testing
+## :100: Testing
 
-To run the test, you are going to need [bats(1)](https://github.com/sstephenson/bats). Then you can simply run:
+To run the test, you will going to need
+[bats(1)](https://github.com/sstephenson/bats). Then you can simply run:
 ```
 $ make test
 ```
 
-## License
+Right now, the test are not actually running in a minimal POSIX compliant shell
+but in bash 😒. This is a work in progress 🚧.
 
-This software is distributed under the GPLv3 license. Please check the [LICENSE.md file](LICENSE.md)
+## :arrows_counterclockwise: Versionning
+
+This project use [SemVer](https://semver.org/). The public API is defined as
+the possible interaction with the tool via the shell.
+
+## :wave: Authors
+
+* Mayeu - Initial work - [Personal website](https://mayeu.me)
+
+## :memo: License
+
+This software is distributed under the GPLv3 license. Please check the
+[LICENSE.md file](LICENSE.md).
+
+## :snail: Embrace the slug
+<h1 align="center">
+<img src="https://github.com/Mayeu/slugify/blob/better-readme/doc/img/brain-slug.jpeg" alt="Propaganda poster for the brain slug federation. Picturing Fry from the Futurama show being controlled by a brain slug">
+</h1>
