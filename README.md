@@ -3,7 +3,7 @@ Slugify :snail:
 </h1>
 <h4 align="center">A simple and dependency free slugifier for your CLI. POSIX compatible.</h4>
 <p align="center">
-<i>Work on macOS and Linux :rocket:</i>
+<i>Work on macOS and GNU/Linux :rocket:</i>
 </br>
 <i>TL;DR:</i> <code>input | slugify > output</code>
 </p>
