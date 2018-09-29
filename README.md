@@ -94,5 +94,5 @@ This software is distributed under the GPLv3 license. Please check the
 
 ## :snail: Embrace the slug
 <h1 align="center">
-<img src="https://github.com/Mayeu/slugify/blob/better-readme/doc/img/brain-slug.jpeg" alt="Propaganda poster for the brain slug federation. Picturing Fry from the Futurama show being controlled by a brain slug">
+<img src="https://github.com/Mayeu/slugify/blob/master/doc/img/brain-slug.jpeg" alt="Propaganda poster for the brain slug federation. Picturing Fry from the Futurama show being controlled by a brain slug">
 </h1>
