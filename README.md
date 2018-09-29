@@ -14,9 +14,9 @@ Slugify :snail:
 <img src="https://badgen.net/github/release/Mayeu/slugify?icon=github" alt="GitHub release badge"/>
 </p>
 
-👉 This is a really simple (*a.k.a "feature-less"*) tool to generate slugs
-:snail: directly from your command line. It does not have any option by design
-and work best by piping one line at a time to it:
+👉 This is a really simple (*aka "featureless"*) tool to generate slugs :snail:
+directly from your command line. It does not have any option by design and work
+best by piping one line at a time to it:
 
 ```
 $ echo "I'm no slug 🐌." | slugify
@@ -24,19 +24,19 @@ i-m-no-slug
 ```
 
 It does not aim to be perfect since the goal is to be able to use it in a *drop
-& run* fashion (a.k.a *`curl`ing & praying* :pray:).
+& run* fashion (aka *`curl`ing & praying* :pray:).
 
 ## :computer: Install
 
-If you are the adventurous kind you can simply `curl` & install the script
-directly from the web 🌐. Here is a one liner that may break your system:
+If you are the adventurous kind, you can simply `curl` & install the script
+directly from the web 🌐. Here is a one-liner that may break your system:
 ```
 $ curl https://slugify.now.sh > slugify && chmod +x && sudo mv slugify /usr/local/bin/
 ```
-(Yes this will ask for your password, as stated before this may break your
+(Yes, this will ask for your password, as stated before this may break your
 system. Paste with care.)
 
-Otherwise, just clone this repo somewhere and manually copy the `slugify`
+Otherwise, just clone this repository somewhere and manually copy the `slugify`
 script anywhere your `$PATH` point to (my favorite place is my `~/bin` folder):
 ```
 $ git clone https://github.com/Mayeu/slugify
@@ -69,18 +69,18 @@ Usage: slugify text
 
 ## :100: Testing
 
-To run the test, you will going to need
-[bats(1)](https://github.com/sstephenson/bats). Then you can simply run:
+To run the test, you need [bats(1)](https://github.com/sstephenson/bats)
+installed. Then you can simply run:
 ```
 $ make test
 ```
 
-Right now, the test are not actually running in a minimal POSIX compliant shell
-but in bash 😒. This is a work in progress 🚧.
+Right now, the tests are not actually running in a minimal POSIX compliant
+shell but in bash 😒. This is a work in progress 🚧.
 
 ## :arrows_counterclockwise: Versionning
 
-This project use [SemVer](https://semver.org/). The public API is defined as
+This project uses [SemVer](https://semver.org/). The public API is defined as
 the possible interaction with the tool via the shell.
 
 ## :wave: Authors
