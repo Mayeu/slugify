@@ -64,6 +64,27 @@ Centos 7:
   image: centos:7
 
 #
+# Fedora
+# See the list of active release: https://fedoraproject.org/wiki/Releases
+#
+
+Fedora 27:
+  <<: *job_definition
+  image: fedora:27
+
+Fedora 28:
+  <<: *job_definition
+  image: fedora:28
+
+Fedora 29:
+  <<: *job_definition
+  image: fedora:29
+
+Fedora Rawhide:
+  <<: *job_definition
+  image: fedora:rawhide
+
+#
 # Ubuntu
 # See the list of active release: https://wiki.ubuntu.com/Releases
 #
