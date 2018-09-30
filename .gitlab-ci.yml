@@ -5,6 +5,7 @@ before_script:
   - command -v apt-get && apt-get update && apt-get -y install curl make
   - command -v apk && apk update && apk add curl make bash
   - command -v pacman && pacman -Sy --noconfirm curl make
+  - command -v yum && yum install -y curl make
   - curl https://codeload.github.com/sstephenson/bats/tar.gz/v0.4.0 > bats.tar.gz;
   - tar xvzf bats.tar.gz
   - mv bats-0.4.0 bats
@@ -48,6 +49,19 @@ Alpine edge:
 Archlinux:
   <<: *job_definition
   image: base/archlinux
+
+#
+# Centos
+# See the list of active release: https://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d
+#
+
+Centos 6:
+  <<: *job_definition
+  image: centos:6
+
+Centos 7:
+  <<: *job_definition
+  image: centos:7
 
 #
 # Ubuntu
