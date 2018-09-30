@@ -64,6 +64,26 @@ Centos 7:
   image: centos:7
 
 #
+# Debian
+#
+
+Debian oldstable:
+  <<: *job_definition
+  image: debian:oldstable
+
+Debian stable:
+  <<: *job_definition
+  image: debian:stable
+
+Debian testing:
+  <<: *job_definition
+  image: debian:testing
+
+Debian unstable:
+  <<: *job_definition
+  image: debian:unstable
+
+#
 # Fedora
 # See the list of active release: https://fedoraproject.org/wiki/Releases
 #
