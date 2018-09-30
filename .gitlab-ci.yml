@@ -2,7 +2,8 @@ stages:
   - test
 
 before_script:
-  - if command -v apt-get > /dev/null 2>&1; then apt-get update && apt-get -y install curl make; fi
+  - command -v apt-get && apt-get update && apt-get -y install curl make
+  - command -v apk && apk update && apk add curl make bash
   - curl https://codeload.github.com/sstephenson/bats/tar.gz/v0.4.0 > bats.tar.gz;
   - tar xvzf bats.tar.gz
   - mv bats-0.4.0 bats
@@ -12,35 +13,61 @@ before_script:
   stage: test
   script:
     - make test
+
+#
+# Alpine
+# See the list of active release: https://wiki.alpinelinux.org/wiki/Alpine_Linux:Releases
+#
+
+Alpine 3.5:
+  <<: *job_definition
+  image: alpine:3.5
+
+Alpine 3.6:
+  <<: *job_definition
+  image: alpine:3.6
+
+Alpine 3.7:
+  <<: *job_definition
+  image: alpine:3.7
+
+Alpine 3.8:
+  <<: *job_definition
+  image: alpine:3.8
+
+Alpine edge:
+  <<: *job_definition
+  image: alpine:edge
+
 #
 # Ubuntu
+# See the list of active release: https://wiki.ubuntu.com/Releases
 #
 
-"14.04 Trusty LTS":
-  <<: *job_definition
-  image: ubuntu:trusty
+Ubuntu 14.04 LTS:
+ <<: *job_definition
+ image: ubuntu:trusty
 
 # This locale setup catched the bug that led to v1.0.1
-"14.04 Trusty LTS UTF-8":
-  <<: *job_definition
-  image: ubuntu:trusty
-  variables:
-    LANG: C.UTF-8
-    LC_ALL: C.UTF-8
-  script:
-    - bash
-    - make test
+Ubuntu 14.04 LTS UTF-8:
+ <<: *job_definition
+ image: ubuntu:trusty
+ variables:
+   LANG: C.UTF-8
+   LC_ALL: C.UTF-8
+ script:
+   - bash
+   - make test
 
-"16.04 Xenial":
-  <<: *job_definition
-  image: ubuntu:xenial
+Ubuntu 16.04 LTS:
+ <<: *job_definition
+ image: ubuntu:xenial
 
-"18.04 Bionic":
-  <<: *job_definition
-  image: ubuntu:bionic
+Ubuntu 18.04 LTS:
+ <<: *job_definition
+ image: ubuntu:bionic
 
-"18.10 Cosmic":
+Ubuntu 18.10:
   <<: *job_definition
   image: ubuntu:cosmic
-
 
