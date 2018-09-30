@@ -12,13 +12,16 @@ before_script:
   stage: test
   script:
     - make test
+#
+# Ubuntu
+#
 
-Trusty:
+"14.04 Trusty LTS":
   <<: *job_definition
   image: ubuntu:trusty
 
 # This locale setup catched the bug that led to v1.0.1
-Trusty UTF-8:
+"14.04 Trusty LTS UTF-8":
   <<: *job_definition
   image: ubuntu:trusty
   variables:
@@ -27,4 +30,17 @@ Trusty UTF-8:
   script:
     - bash
     - make test
+
+"16.04 Xenial":
+  <<: *job_definition
+  image: ubuntu:xenial
+
+"18.04 Bionic":
+  <<: *job_definition
+  image: ubuntu:bionic
+
+"18.10 Cosmic":
+  <<: *job_definition
+  image: ubuntu:cosmic
+
 
