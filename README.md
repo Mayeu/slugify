@@ -76,7 +76,28 @@ $ make test
 ```
 
 Right now, the tests are not actually running in a minimal POSIX compliant
-shell but in bash 😒. This is a work in progress 🚧.
+shell but in bash 😒. This is a work in progress 🚧, you can give a hand if you
+have one to spare.
+
+The tests are automatically run on each commits (including Pull Requests) with
+the help of [Travis CI](https://travis-ci.org/), and
+[GitLab](https://gitlab.com/Mayeu/slugify/pipelines). The following OS are
+tested:
+
+* Travis CI:
+  * Ubuntu 14.04
+  * macOS
+* GitLab:
+  * Alpine 3.5, 3.6, 3.7, 3.8, edge
+  * Archlinux
+  * Centos 6, 7
+  * Debian oldstable, stable, testing, unstable
+  * Fedora 27, 28, 29, Rawhide
+  * Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS, 18.10
+
+Right now there is no automated test for our BSD friends, I would love to setup
+some, poke me if you know how I could do that on the cheap (i.e.: *free as in
+:beer:*).
 
 ## :arrows_counterclockwise: Versionning
 
