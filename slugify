@@ -22,7 +22,7 @@ VERSION=2.0.0-beta
 
 # This is the magic
 to_slug() {
-  iconv -f utf8 -t ascii//TRANSLIT |
+  iconv -f UTF8 -t ASCII//TRANSLIT |
   alphanum_filter                  |
   # Keep only one dash if there is multiple one consecutively
   tr -s '-'                        |
