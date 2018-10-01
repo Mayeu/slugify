@@ -22,18 +22,22 @@ VERSION=2.0.0-beta
 
 # This is the magic
 to_slug() {
-  # Forcing the POSIX local so alnum is only 0-9A-Za-z
-  #export LANG=POSIX
-  #export LC_ALL=POSIX
   iconv -f utf8 -t ascii//TRANSLIT |
-  # Keep only alphanumeric value
-  sed -e 's/[^[:alnum:]]/-/g'      |
+  alphanum_filter                  |
   # Keep only one dash if there is multiple one consecutively
   tr -s '-'                        |
   # Lowercase everything
   tr A-Z a-z                       |
   # Remove last dash if there is nothing after
   sed -e 's/-$//'
+}
+
+alphanum_filter() {
+  # Forcing the POSIX local so alnum is only 0-9A-Za-z
+  export LANG=POSIX
+  export LC_ALL=POSIX
+  # Keep only alphanumeric value
+  sed -e 's/[^[:alnum:]]/-/g'
 }
 
 # Consume stdin if it exist
