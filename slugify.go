@@ -10,12 +10,13 @@ import (
 
 func main() {
 
-	var lines []string
+	var pipe_lines []string
+	var args_lines []string
 
 	if weAreInAPipe() {
-		lines = readPipe()
+		pipe_lines = readPipe()
 	} else if len(os.Args[1:]) > 0 {
-		lines = os.Args[1:]
+		args_lines = os.Args[1:]
 	} else {
 		var version = "2.0.0"
 		fmt.Println("version ", version)
@@ -24,7 +25,11 @@ func main() {
 		os.Exit(1)
 	}
 
-	slugify(lines)
+	if len(pipe_lines) > len(args_lines) {
+		slugify(pipe_lines)
+	} else {
+		slugify(args_lines)
+	}
 }
 
 func slugify(lines []string) {
