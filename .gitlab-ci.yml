@@ -15,6 +15,7 @@ before_script:
 .job_template: &job_definition
   stage: test
   script:
+    - ls
     - make test
 
 Build Linux binary:
