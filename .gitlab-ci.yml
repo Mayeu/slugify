@@ -16,7 +16,7 @@ before_script:
   stage: test
   script:
     - ls
-    - make test
+    - make testci
 
 Build Linux binary:
   stage: build

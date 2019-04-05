@@ -2,7 +2,11 @@
 .PHONY: help build alias clean deploy test
 
 test: .test.mk ## Run the test suite using bats
+testci: .testci.mk ## Run the test suite in the CI (don't build)
 .test.mk: test/suite.bats build
+	bats $<
+	touch $@
+.testci.mk: test/suite.bats
 	bats $<
 	touch $@
 
