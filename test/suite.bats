@@ -2,6 +2,8 @@
 
 slugify="./dist/slugify"
 
+set -x
+
 @test "slug \"lol #@ slug mY l1fe  béébé\"  via pipe" {
   result=$(echo "lol #@ slug mY l1fe  béébé" | $slugify)
   test "${result}" = "lol-at-slug-my-l1fe-beebe"
