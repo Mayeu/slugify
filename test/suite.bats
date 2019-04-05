@@ -5,6 +5,11 @@ load 'test_helper/bats-assert/load'
 
 slugify="dist/slugify"
 
+@test "slugify binary exist in the expected place" {
+  run test -e $slugify
+  assert_success
+}
+
 @test "slug \"lol #@ slug mY l1fe  béébé\"  via pipe" {
   run bash -c "echo 'lol #@ slug mY l1fe  béébé' | $slugify"
   assert_output "lol-at-slug-my-l1fe-beebe"
