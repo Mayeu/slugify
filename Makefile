@@ -13,8 +13,8 @@ alias: deploy ## Create an alias on now.sh
 	cd dist && now alias slugify
 
 build: dist/slugify test ## "Build" the script (ie: move it to dist/)
-dist/slugify: dist slugify
-	cp slugify dist/./
+dist/slugify: dist slugify.go
+	go build -o $@
 
 dist: ## Create the dist folder
 	mkdir -p dist
