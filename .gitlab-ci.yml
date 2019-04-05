@@ -19,6 +19,7 @@ before_script:
 
 Build Linux binary:
   stage: build
+  image: go
   script:
     - got get -u github.com/gosimple/slug
     - make build
