@@ -21,7 +21,7 @@ Build Linux binary:
   stage: build
   image: golang
   script:
-    - got get -u github.com/gosimple/slug
+    - go get -u github.com/gosimple/slug
     - make build
   artifacts:
     paths:
