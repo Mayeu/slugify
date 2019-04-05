@@ -1,35 +1,36 @@
 #!/usr/bin/env bats
 
-slugify="./dist/slugify"
+load 'test_helper/bats-support/load'
+load 'test_helper/bats-assert/load'
 
-set -x
+slugify="dist/slugify"
 
 @test "slug \"lol #@ slug mY l1fe  béébé\"  via pipe" {
-  result=$(echo "lol #@ slug mY l1fe  béébé" | $slugify)
-  test "${result}" = "lol-at-slug-my-l1fe-beebe"
+  run bash -c "echo 'lol #@ slug mY l1fe  béébé' | $slugify"
+  assert_output "lol-at-slug-my-l1fe-beebe"
 }
 
 @test "slug \"lol #@ slug mY l1fe  béébé\" as argument" {
-  result=$($slugify "lol #@ slug mY l1fe  béébé")
-  test "${result}" = "lol-at-slug-my-l1fe-beebe"
+  run $slugify "lol #@ slug mY l1fe  béébé"
+  assert_output "lol-at-slug-my-l1fe-beebe"
 }
 
 @test "slug \"Slug me bébé!!1!\" via pipe" {
-  result=$(echo 'Slug me bébé!!1!' | $slugify)
-  test "${result}" = "slug-me-bebe-1"
+  run bash -c "echo 'Slug me bébé!!1!' | $slugify"
+  assert_output "slug-me-bebe-1"
 }
 
 @test "slug \"Slug me bébé!!1!\" as argument" {
-  result=$($slugify 'Slug me bébé!!1!')
-  test "${result}" = "slug-me-bebe-1"
+  run $slugify 'Slug me bébé!!1!'
+  assert_output "slug-me-bebe-1"
 }
 
 @test "slug \"I'm no slug.\" via pipe" {
-  result=$(echo "I'm no slug." | $slugify)
-  test "${result}" = "im-no-slug"
+  run bash -c "echo \"I'm no slug.\" | $slugify"
+  assert_output "im-no-slug"
 }
 
 @test "slug \"I'm no slug.\" as argument" {
-  result=$($slugify "I'm no slug.")
-  test "${result}" = "im-no-slug"
+  run $slugify "I'm no slug."
+  assert_output "im-no-slug"
 }
