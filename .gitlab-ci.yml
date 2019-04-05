@@ -23,8 +23,8 @@ Build Linux binary:
     - got get -u github.com/gosimple/slug
     - make build
   artifacts:
-  paths:
-    - dist/
+    paths:
+      - dist/
 
 #
 # Alpine
