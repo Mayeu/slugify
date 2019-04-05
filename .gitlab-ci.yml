@@ -1,4 +1,5 @@
 stages:
+  - build
   - test
 
 before_script:
@@ -15,6 +16,15 @@ before_script:
   stage: test
   script:
     - make test
+
+Build Linux binary:
+  stage: build
+  script:
+    - got get -u github.com/gosimple/slug
+    - make build
+  artifacts:
+  paths:
+    - dist/
 
 #
 # Alpine
