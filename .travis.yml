@@ -1,5 +1,5 @@
 sudo: false
-language: ruby
+language: go
 os:
   - linux
   - osx
@@ -10,5 +10,5 @@ before_script:
   - export PATH=$PATH:bats/bin
 
 script:
+  - go get -u github.com/gosimple/slug
   - make test
-

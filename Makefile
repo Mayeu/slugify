@@ -2,7 +2,11 @@
 .PHONY: help build alias clean deploy test
 
 test: .test.mk ## Run the test suite using bats
-.test.mk: test/suite.bats slugify
+testci: .testci.mk ## Run the test suite in the CI (don't build)
+.test.mk: test/suite.bats build
+	bats $<
+	touch $@
+.testci.mk: test/suite.bats
 	bats $<
 	touch $@
 
@@ -12,9 +16,9 @@ deploy: build ## Deploy to now.sh
 alias: deploy ## Create an alias on now.sh
 	cd dist && now alias slugify
 
-build: dist/slugify test ## "Build" the script (ie: move it to dist/)
-dist/slugify: dist slugify
-	cp slugify dist/./
+build: dist/slugify ## "Build" the script (ie: move it to dist/)
+dist/slugify: dist slugify.go
+	go build -o $@
 
 dist: ## Create the dist folder
 	mkdir -p dist
