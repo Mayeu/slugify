@@ -31,7 +31,7 @@ It does not aim to be perfect since the goal is to be able to use it in a *drop
 If you are the adventurous kind, you can simply `curl` & install the script
 directly from the web 🌐. Here is a one-liner that may break your system:
 ```
-$ curl https://slugify.now.sh > slugify && chmod +x slugify && sudo mv slugify /usr/local/bin/
+$ curl https://slugify.vercel.app > slugify && chmod +x slugify && sudo mv slugify /usr/local/bin/
 ```
 (Yes, this will ask for your password, as stated before this may break your
 system. Paste with care.)
